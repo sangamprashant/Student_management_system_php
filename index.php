@@ -1,3 +1,22 @@
+<?php
+
+error_reporting(0);
+session_start();
+session_destroy();
+
+if ($_SESSION['message']) {
+    $message = $_SESSION['message'];
+
+    echo "<script type='text/javascript'>
+        
+        alert('$message');
+
+        </script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +44,7 @@
             <li><a href=" ">Home</a></li>
             <li><a href=" ">Contact</a></li>
             <li><a href=" ">Admission</a></li>
-            <li><a href=" " class="btn btn-success">Login</a></li>
-
+            <li><a href="login.php" class="btn btn-success">Login</a></li>
         </ul>
     </nav>
     <div class="section1">
@@ -90,29 +108,29 @@
             </div>
         </div>
     </div>
-    <center >
+    <center>
         <h1 class="adm">Admission Form</h1>
     </center>
     <div align="center" class="admission_form">
-        <form>
+        <form action="data_check.php" method="POST">
             <div class="adm_int">
                 <label class="label_text">Name</label>
-                <input class="input_deg" type="text" name="" />
+                <input class="input_deg" type="text" name="name" />
             </div>
             <div class="adm_int">
                 <label class="label_text">Email</label>
-                <input class="input_deg" type="email" name="" />
+                <input class="input_deg" type="email" name="email" />
             </div>
             <div class="adm_int">
                 <label class="label_text">Phone</label>
-                <input class="input_deg" type="text" name="" />
+                <input class="input_deg" type="text" name="phone" />
             </div>
             <div class="adm_int">
                 <label class="label_text">Message</label>
-                <textarea class="int_txt"></textarea>
+                <textarea class="int_txt" name="message"></textarea>
             </div>
             <div class="adm_int">
-                <input class="btn btn-primary" type="submit" id="submit" value="Apply" />
+                <input class="btn btn-primary" type="submit" id="submit" value="Apply" name="apply" />
             </div>
         </form>
     </div>

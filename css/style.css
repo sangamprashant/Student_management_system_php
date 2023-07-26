@@ -108,3 +108,36 @@ footer {
   top: 20%;
   position: relative;
 }
+.form_deg {
+  padding-top: 200px;
+}
+.label_deg {
+  display: inline-block;
+  color: skyblue;
+  width: 100px;
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.login_form {
+  background-color: black;
+  width: 400px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.tite_deg {
+  background-color: skyblue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+.body_deg {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  object-fit: cover;
+}
