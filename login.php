@@ -18,6 +18,9 @@
 </head>
 
 <body background="img/school2.jpg" class="body_deg">
+<?php
+    include 'index_nav.php'
+    ?>
     <center>
         <div class="form_deg">
             <center class="tite_deg">Login form

@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 nav {
   position: fixed;
   background-color: skyblue;
@@ -63,8 +65,9 @@ ul li a {
 }
 
 .teacher {
-  width: 90%;
-  height: 200px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 .label_text {
   display: inline-block;

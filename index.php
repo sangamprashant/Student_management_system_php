@@ -14,6 +14,20 @@ if ($_SESSION['message']) {
         </script>";
 }
 
+// connect to db
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "schoolproject";
+// connect to db end
+
+$data = mysqli_connect($host, $user, $password, $db);
+
+$sql = "SELECT * FROM teacher";
+
+$result = mysqli_query($data, $sql);
+
+
 ?>
 
 
@@ -38,15 +52,11 @@ if ($_SESSION['message']) {
 </head>
 
 <body>
-    <nav>
-        <label class="logo">W-School</label>
-        <ul>
-            <li><a href=" ">Home</a></li>
-            <li><a href=" ">Contact</a></li>
-            <li><a href=" ">Admission</a></li>
-            <li><a href="login.php" class="btn btn-success">Login</a></li>
-        </ul>
-    </nav>
+
+    <?php
+    include 'index_nav.php'
+    ?>
+
     <div class="section1">
         <label class="image_text">We Teach Student With Care</label>
         <img class="main_img" src="img/school_management.jpg" />
@@ -71,18 +81,17 @@ if ($_SESSION['message']) {
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img class="teacher" src="img/teacher1.jpg" />
-                <p>in a Vibrant, academically challenging, and encouraging environment where manifold view points are prized and celebrtated</p>
-            </div>
-            <div class="col-md-4">
-                <img class="teacher" src="img/teacher2.jpg" />
-                <p>in a Vibrant, academically challenging, and encouraging environment where manifold view points are prized and celebrtated</p>
-            </div>
-            <div class="col-md-4">
-                <img class="teacher" src="img/teacher3.jpg" />
-                <p>in a Vibrant, academically challenging, and encouraging environment where manifold view points are prized and celebrtated</p>
-            </div>
+            <?php
+            while ($info = $result->fetch_assoc()) {
+            ?>
+                <div class="col-md-4 teacher_container">
+                    <img class="teacher" src=<?php echo "{$info['image']}" ?> />
+                    <h3><?php echo "{$info['name']}" ?></h3>
+                    <h5><?php echo "{$info['description']}" ?></h5>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
     <center>
@@ -109,7 +118,7 @@ if ($_SESSION['message']) {
         </div>
     </div>
     <center>
-        <h1 class="adm">Admission Form</h1>
+        <h1 id="adm" class="adm">Admission Form</h1>
     </center>
     <div align="center" class="admission_form">
         <form action="data_check.php" method="POST">
